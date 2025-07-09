@@ -17,7 +17,8 @@ This command parses the CSV files with `papaparse` and generates Markdownfiles u
 Deploy the site on Netlify using the included adapter:
 
 1. Install dependencies with `npm install`.
-2. Build the site using `npm run build`.
+2. Build the site using `npm run build`. This compiles Tailwind using
+   `tailwind.config.cjs` and outputs the final `dist` folder.
 3. Push the repository to a connected Netlify project.
 
 Netlify reads `netlify.toml` to run the build command and serve the
