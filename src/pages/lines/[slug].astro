@@ -1,0 +1,24 @@
+---
+import { getEntryBySlug, getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const lines = await getCollection('lines');
+  return lines.map((line) => ({
+    params: { slug: line.slug },
+    props: { slug: line.slug },
+  }));
+}
+
+const { slug } = Astro.props;
+const entry = await getEntryBySlug('lines', slug);
+if (!entry) throw new Error(`No entry found for slug: ${slug}`);
+const { Content, data } = await entry.render();
+---
+
+<Layout title={data.title}>
+  <article class="prose mx-auto px-4 py-8">
+    <h1>{data.title}</h1>
+    <Content />
+  </article>
+</Layout>

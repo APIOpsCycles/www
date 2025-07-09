@@ -1,0 +1,19 @@
+{
+  "name": "apiopscycles",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "import:csv": "node scripts/import-csv.js"
+  },
+  "dependencies": {
+    "astro": "^5.11.0",
+    "gray-matter": "^4.0.3",
+    "marked": "^16.0.0",
+    "papaparse": "^5.4.1"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.0"
+  }
+}

@@ -1,0 +1,54 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import MethodLayout from '../../layouts/MethodLayout.astro';
+import { getEntryBySlug } from '../../utils/content';
+import fs from 'fs/promises';
+import path from 'path';
+
+// Generate paths for all method pages
+export async function getStaticPaths() {
+  const dir = path.join(process.cwd(), 'src', 'content', 'methods');
+  const files = await fs.readdir(dir);
+
+  const paths = files
+    .filter(name => name.endsWith('.md'))
+    .map(name => ({
+      params: { slug: name.replace(/\.md$/, '') }
+    }));
+
+  return paths;
+}
+
+// Load the specific markdown content
+const { slug } = Astro.params;
+const entry = await getEntryBySlug('methods', slug);
+
+if (!entry) {
+  throw new Error(`No entry found for slug: ${slug}`);
+}
+
+const { data, content } = entry;
+
+const {
+  title,
+  entry_criteria = [],
+  exit_criteria = [],
+  doing_the_work,
+  enabling_the_work,
+  previous_phase,
+  next_phase
+} = data;
+---
+
+<Layout>
+  <MethodLayout 
+    title={title}
+    entry_criteria={entry_criteria}
+    exit_criteria={exit_criteria}
+    doing_the_work={doing_the_work}
+    enabling_the_work={enabling_the_work}
+    previous_phase={previous_phase}
+    next_phase={next_phase}
+    content={content}
+  />
+</Layout>

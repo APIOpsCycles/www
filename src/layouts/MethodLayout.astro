@@ -1,0 +1,63 @@
+---
+const {
+  title,
+  entry_criteria,
+  exit_criteria,
+  doing_the_work,
+  enabling_the_work,
+  previous_phase,
+  next_phase,
+  content
+} = Astro.props;
+---
+
+<article class="prose mx-auto px-4 py-8">
+  <h1>{title}</h1>
+
+  <!-- Entry and Exit Criteria -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+    <div>
+      <h2>🚪 Entry criteria</h2>
+      <ul>
+        {entry_criteria?.map(item => <li>{item}</li>)}
+      </ul>
+    </div>
+    <div>
+      <h2>🏁 Exit criteria</h2>
+      <ul>
+        {exit_criteria?.map(criterion => <li>{criterion}</li>)}
+      </ul>
+    </div>
+  </div>
+
+  <!-- Doing the API work -->
+  {doing_the_work && (
+    <div class="mb-8">
+      <h2>🔧 Doing the API work</h2>
+      <p>{doing_the_work}</p>
+    </div>
+  )}
+
+  <!-- Enabling the API work -->
+  {enabling_the_work && (
+    <div class="mb-8">
+      <h2>🧰 Enabling the API work</h2>
+      <p>{enabling_the_work}</p>
+    </div>
+  )}
+
+  <!-- Optional markdown body content -->
+  {content && (
+    <div class="mb-8" innerHTML={content} />
+  )}
+
+  <!-- Navigation -->
+  <div class="flex justify-between mt-8">
+    {previous_phase && (
+      <a href={`/methods/${previous_phase}`} class="btn">⬅️ {previous_phase.replace(/-/g, ' ')}</a>
+    )}
+    {next_phase && (
+      <a href={`/methods/${next_phase}`} class="btn">{next_phase.replace(/-/g, ' ')} ➡️</a>
+    )}
+  </div>
+</article>
