@@ -7,7 +7,7 @@ const {
   enabling_the_work,
   previous_phase,
   next_phase,
-  content
+  Content
 } = Astro.props;
 ---
 
@@ -47,8 +47,10 @@ const {
   )}
 
   <!-- Optional markdown body content -->
-  {content && (
-    <div class="mb-8" innerHTML={content} />
+  {Content && (
+    <div class="mb-8">
+      <Content />
+    </div>
   )}
 
   <!-- Navigation -->
