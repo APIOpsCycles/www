@@ -20,7 +20,7 @@ if (!entry) {
   throw new Error(`No entry found for slug: ${slug}`);
 }
 
-const { Content, data } = await entry.render();
+const { Content, frontmatter } = await entry.render();
 
 const {
   title,
@@ -30,7 +30,7 @@ const {
   enabling_the_work,
   previous_phase,
   next_phase
-} = data;
+} = frontmatter;
 ---
 
 <Layout>
