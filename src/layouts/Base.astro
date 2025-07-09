@@ -1,0 +1,53 @@
+---
+import '../styles/global.css';
+import '../styles/site.css';
+const { title } = Astro.props;
+---
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title ? `${title} | APIOps Cycles` : 'APIOps Cycles'}</title>
+  </head>
+  <body class="body-2">
+    <header class="navbar w-nav">
+      <div class="nav-container flex items-center justify-between px-4 py-2">
+        <a href="/" class="nav-logo-wrap w-nav-brand"><img src="/images/apiops-cycles-logo2025-blue.svg" width="82" alt="APIOps Cycles logo" /></a>
+        <nav class="nav-menu w-nav-menu hidden md:flex space-x-4">
+          <a href="/the-method" class="nav-link w-nav-link">The method</a>
+          <a href="/resources" class="nav-link w-nav-link">Resources</a>
+          <a href="/partners" class="nav-link w-nav-link">Partners</a>
+          <a href="/about" class="nav-link w-nav-link">About</a>
+        </nav>
+        <button class="menu-button w-nav-button md:hidden">
+          <img src="/images/Search.svg" alt="Menu" class="h-6 w-6" />
+        </button>
+      </div>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer class="footer">
+      <div class="container mx-auto">
+        <div class="footer-wrap flex flex-col md:flex-row justify-between gap-4">
+          <div>
+            <img src="/images/apiops-cycles-logo2025-white.svg" alt="APIOps Cycles" class="footer-logo" />
+            <div>Method license CC-BY-SA 4.0<br />APIOps and APIOps cycles <br />trademark owned by <a href="https://www.osaango.com" target="_blank" class="link-2">Osaango Oy</a></div>
+          </div>
+          <div class="text-right">
+            <div class="footer-links-wrap flex flex-wrap justify-end">
+              <a href="/the-method" class="footer-link">The Method</a>
+              <a href="/resources" class="footer-link">Resources</a>
+              <a href="/partners" class="footer-link">Partners</a>
+              <a href="/about" class="footer-link">About</a>
+              <a href="https://medium.com/apiops" class="footer-link">Blog</a>
+            </div>
+            <div class="social-links-wrap">
+              <a href="https://www.linkedin.com/company/apiopscycles/" target="_blank" class="social-link linkedin w-inline-block"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
