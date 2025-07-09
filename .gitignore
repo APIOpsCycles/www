@@ -2,7 +2,6 @@ node_modules
 dist
 .env
 .DS_Storenode_modules
-scripts/import-csv.js
 APIOps Cycles - Lines.csv
 APIOps Cycles - Methods.csv
 APIOps Cycles - Resources.csv
