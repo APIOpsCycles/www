@@ -10,5 +10,15 @@ Place `APIOps Cycles - Methods.csv`, `APIOps Cycles - Lines.csv` and
 npm run import:csv
 ```
 
-This command parses the CSV files with `papaparse` and generates Markdown
-files under `src/content`.
+This command parses the CSV files with `papaparse` and generates Markdownfiles under `src/content`.
+
+## Deployment
+
+Deploy the site on Netlify using the included adapter:
+
+1. Install dependencies with `npm install`.
+2. Build the site using `npm run build`.
+3. Push the repository to a connected Netlify project.
+
+Netlify reads `netlify.toml` to run the build command and serve the
+contents of the `dist` directory.
