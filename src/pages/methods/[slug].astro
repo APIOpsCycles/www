@@ -1,33 +1,26 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import MethodLayout from '../../layouts/MethodLayout.astro';
-import { getEntryBySlug } from '../../utils/content';
-import fs from 'fs/promises';
-import path from 'path';
+import { getEntryBySlug, getCollection } from 'astro:content';
 
 // Generate paths for all method pages
 export async function getStaticPaths() {
-  const dir = path.join(process.cwd(), 'src', 'content', 'methods');
-  const files = await fs.readdir(dir);
-
-  const paths = files
-    .filter(name => name.endsWith('.md'))
-    .map(name => ({
-      params: { slug: name.replace(/\.md$/, '') }
-    }));
-
-  return paths;
+  const methods = await getCollection('methods');
+  return methods.map((method) => ({
+    params: { slug: method.slug },
+    props: { slug: method.slug },
+  }));
 }
 
 // Load the specific markdown content
-const { slug } = Astro.params;
+const { slug } = Astro.props;
 const entry = await getEntryBySlug('methods', slug);
 
 if (!entry) {
   throw new Error(`No entry found for slug: ${slug}`);
 }
 
-const { data, content } = entry;
+const { Content, data } = await entry.render();
 
 const {
   title,
@@ -49,6 +42,6 @@ const {
     enabling_the_work={enabling_the_work}
     previous_phase={previous_phase}
     next_phase={next_phase}
-    content={content}
+    Content={Content}
   />
 </Layout>
