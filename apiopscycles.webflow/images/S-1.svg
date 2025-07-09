@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="175.572" height="129" viewBox="0 0 175.572 129">
+  <g id="S-1" transform="translate(0.455)">
+    <g id="Oval" transform="translate(29 23)" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="1">
+      <circle cx="53" cy="53" r="53" stroke="none"/>
+      <circle cx="53" cy="53" r="52.5" fill="none"/>
+    </g>
+    <g id="Rectangle" transform="translate(68)" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="1">
+      <rect width="84" height="83" stroke="none"/>
+      <rect x="0.5" y="0.5" width="83" height="82" fill="none"/>
+    </g>
+    <path id="Path_2" data-name="Path 2" d="M175,9.058c-9.667-2.311-21.022-13.644-47.621-6.99-49.166,12.3-72.093,74.183-111.686,39.5C6.382,33.413,5.03,27.036,0,15.948" transform="translate(0 56)" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="1"/>
+  </g>
+</svg>
