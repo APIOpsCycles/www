@@ -13,7 +13,8 @@ export async function getStaticPaths() {
 const { slug } = Astro.props;
 const entry = await getEntryBySlug('resources', slug);
 if (!entry) throw new Error(`No entry found for slug: ${slug}`);
-const { Content, frontmatter } = await entry.render();
+const { Content } = await entry.render();
+const frontmatter = entry.data;
 ---
 
 <Layout title={frontmatter.title}>
